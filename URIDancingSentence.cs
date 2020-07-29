@@ -10,6 +10,13 @@ namespace ConsoleApplication34
     {
         static void Main(string[] args)
         {
+            /*A sentence is called dancing if its first letter is uppercase and the case of each subsequent letter is the opposite 
+            of the previous letter. Spaces should be ignored when determining the case of a letter. For example, "A b Cd" is a 
+            dancing sentence because the first letter ('A') is uppercase, the next letter ('b') is lowercase, the next letter ('C') 
+            is uppercase, and the next letter ('d') is lowercase.*/
+            
+            
+            
             string input = Console.ReadLine();
             char[] inputStr = input.ToCharArray();
             string previousCarecter = null;
