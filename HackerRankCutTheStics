@@ -1,0 +1,76 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CutTheStrics
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            /*You are given a number of sticks of varying lengths. You will iteratively cut the sticks into smaller sticks, discarding the 
+             * shortest pieces until there are none left. At each iteration you will determine the length of the shortest stick remaining,
+             * cut that length from each of the longer sticks and then discard all the pieces of that shortest length. When all the remaining
+             * sticks are the same length, they cannot be shortened so discard them.Given the lengths of
+             sticks, print the number of sticks that are left before each iteration until there are none left.*/
+
+
+
+            Console.Write("Type the array size : ");
+            int no = Convert.ToInt32(Console.ReadLine());
+            int[] arr = new int[no];
+            List<int> resultArr= new List<int>();
+
+            for(int i=0; i<no; i++)
+            {
+                arr[i] = Convert.ToInt32(Console.ReadLine());
+            }
+
+            for(int i=0; i<arr.Length; i++)
+            {
+                int min = 1000;
+                for(int j=0; j<arr.Length; j++)
+                {
+                    if(arr[j]>0 && arr[j]<min)
+                    {
+                        min = arr[j];
+                    }
+                }
+                int count = 0;
+
+                for(int k=0; k<arr.Length; k++)
+                {
+                    if(arr[k]>0)
+                    {
+                        arr[k] = arr[k] - min;
+                        count++;
+                  
+                    }
+                }
+                if(count>0)
+                {
+                    resultArr.Add(count);
+                }
+
+                count = 0;
+                min = 1000;
+            }
+
+
+
+            Console.WriteLine("Result is");
+
+            for(int i=0; i<resultArr.Count(); i++)
+            {
+                Console.WriteLine(resultArr[i]);
+            }
+
+            Console.ReadKey();
+
+
+        }
+    }
+}
