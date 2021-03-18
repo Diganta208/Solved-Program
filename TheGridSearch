@@ -1,0 +1,118 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TheGridSearch
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[,] g= new int[5,10];
+            int row = 0;
+            int coloumn = 0;
+
+            int current_i = 0;
+            int current_j = 0;
+          
+
+            string result = "No";
+
+            Console.WriteLine("first 2d array : ");
+
+            for(int i=0;i<g.GetLength(0); i++)
+            {
+                for(int j=0; j<g.GetLength(1); j++)
+                {
+                    g[i, j] = Convert.ToInt32(Console.ReadLine());
+                }
+                
+            }
+
+            int[,] p = new int[3, 6];
+            Console.WriteLine("second 2d array : ");
+
+            for (int i = 0; i < p.GetLength(0); i++)
+            {
+                for (int j = 0; j < p.GetLength(1); j++)
+                {
+                    p[i, j] = Convert.ToInt32(Console.ReadLine());
+                }
+            }
+
+
+            for (int i = 0; i < g.GetLength(0); i++)
+            {
+                for (int j = 0; j < g.GetLength(1); j++)
+                {
+                    if (g[i, j] == p[row, coloumn])
+                    {
+                        current_i = i;
+                        current_j = j + 1;
+                        coloumn++;
+                        for (int k = 0; k < p.GetLength(0); k++)
+                        {
+                            for (int m = 0; m < p.GetLength(1); m++)
+                            {
+                                if ((row == p.GetLength(0) - 1 && coloumn == p.GetLength(1) - 1) && g[current_i, current_j] == p[row, coloumn])
+                                {
+                                    result = "yes";
+                                    break;
+                                }
+                                else if (g[current_i, current_j] == p[row, coloumn])
+                                {
+                                    if (coloumn == p.GetLength(1) - 1)
+                                    {
+                                        current_i++;
+                                        current_j = j;
+                                        row++;
+                                        coloumn = 0;
+                                    }
+                                    else
+                                    {
+                                        coloumn++;
+                                        current_j++;
+                                    }
+                                }
+                                else
+                                {
+                                    row = 0;
+                                    coloumn = 0;
+                                    break;
+                                }
+
+
+                            }
+                            if (row == 0 && coloumn == 0)
+                            {
+                                break;
+                            }
+                        }
+                    }
+
+                    else if (result == "yes")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+
+
+                if (result == "yes")
+                {
+                    break;
+                }
+            }
+
+
+            Console.WriteLine(result);
+            Console.ReadKey();
+
+        }
+    }
+}
