@@ -1,0 +1,72 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Encryption
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string s = Console.ReadLine();
+            s=s.Replace(" ",String.Empty);
+
+            double length = s.Length;
+            double root = Math.Sqrt(length);
+            int celling = Convert.ToInt32(Math.Ceiling(root));
+            int floor = Convert.ToInt32(Math.Floor(root));
+           
+
+            char[] strArr = s.ToCharArray();
+            if(floor*celling<strArr.Length)
+            {
+                floor = floor + 1;
+            }
+
+            char[,] r = new char[floor, celling];
+
+            string[] result = new string[celling];
+
+            string arr=null;
+            int count = 0;
+            int increment = 0;
+
+            for (int j = 0; j < floor; j++ )
+            {
+                for (int i = 0; i < celling; i++)
+                {
+                    if (increment<strArr.Length)
+                    {
+                        r[j, i] = strArr[increment];
+                        increment++;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    
+                }
+            }
+
+            for (int i = 0; i < celling; i++ )
+            {
+                for (int j = 0; j < floor; j++)
+               {
+                   arr = arr + r[j, i];
+               }
+               result[count] = arr;
+               count++;
+               arr = null;
+            }
+
+            for (int i = 0; i < result.Length; i++ )
+            {
+                Console.WriteLine(result[i]);
+            }
+
+             Console.ReadKey();
+        }
+    }
+}
