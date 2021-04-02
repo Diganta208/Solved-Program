@@ -1,0 +1,16 @@
+
+(keydown.tab)="onPress($event,0)"
+declare var $
+  onPress(e :any, i : number)
+  {
+    if (i == this.data.length - 1) {
+      this.data.push({
+        field_1: '',
+        field_2: '',
+        field_3: ''
+      });
+      setTimeout(() => {
+        $('tr').eq(i + 2).find('td').eq(2).click();
+      });
+    }
+  }
