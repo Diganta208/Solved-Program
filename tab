@@ -1,6 +1,6 @@
 
 tabindex="-1" (keydown.tab)="onPress($event,0)"
-declare var $
+declare var $ as any
   onPress(e :any, i : number)
   {
       setTimeout(() => {
