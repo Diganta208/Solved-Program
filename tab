@@ -1,5 +1,5 @@
 
-(keydown.tab)="onPress($event,0)"
+tabindex="-1" (keydown.tab)="onPress($event,0)"
 declare var $
   onPress(e :any, i : number)
   {
