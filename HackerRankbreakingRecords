@@ -1,0 +1,47 @@
+    function breakingRecords(scores) {
+    
+    let high;
+    let low;
+    let result=[]
+    let highChange=0;
+    let lowChange=0
+    for(let i=0; i<scores.length; i++)
+    {
+        if(i==0)
+        {
+            high= scores[i]
+            low= scores[i]
+        }
+        else
+        {
+        
+            if(scores[i]>high)
+            {
+                 highChange++;
+                high= scores[i]
+                result[0]= highChange;
+            }
+            else if(scores[i]< low)
+            {
+                 low= scores[i]
+                lowChange++;
+                result[1]=lowChange
+            }
+           
+            else 
+            {
+                continue;
+            }
+        }
+    }
+    
+    if(lowChange==0|| highChange==0)
+     {
+                console.log(highChange)
+                if(highChange==0)  result[0]= highChange
+                if(lowChange==0) result[1]= lowChange
+      }
+    
+    return result
+    
+    }
