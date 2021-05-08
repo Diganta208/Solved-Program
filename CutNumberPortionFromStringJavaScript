@@ -1,0 +1,19 @@
+ if(this.selectedChallans[i].po.includes('ITEM NO'))
+      {
+       
+        let index= this.selectedChallans[i].po.indexOf('ITEM NO')
+        console.log(index)
+
+        for(let j= index+9; j< index+25; j++)
+        {
+          let charecter=  this.selectedChallans[i].po.charAt(j);
+
+          if(charecter>='0' && charecter<='9')
+          {
+            itemNo+= charecter;
+          }
+        }
+      }
+      else{
+        itemNo= '.'
+      }
